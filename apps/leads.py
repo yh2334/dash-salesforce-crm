@@ -75,14 +75,14 @@ def lead_source(status, df):
     elif status == "lost":
         df = df[df["Status"] == "Closed - Not Converted"]
 
-    nb_cases = len(df.index)
+    nb_leads = len(df.index)
     types = df["LeadSource"].unique().tolist()
     values = []
 
     # compute % for each leadsource type
     for case_type in types:
         nb_type = df[df["LeadSource"] == case_type].shape[0]
-        values.append(nb_type / nb_cases * 100)
+        values.append(nb_type / nb_leads * 100)
 
     trace = go.Pie(
         labels=types,
