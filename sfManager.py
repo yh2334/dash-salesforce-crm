@@ -23,7 +23,7 @@ class sf_Manager():
 	def dict_to_df(self, query_result,date=True):
 		items = {
 			val: dict(query_result["records"][val])
-			for val in range(len(query_result["records"]))
+			for val in range(query_result["totalSize"])
 			}
 		df = pd.DataFrame.from_dict(items, orient="index").drop(["attributes"], axis=1)
 		
