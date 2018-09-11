@@ -97,12 +97,12 @@ def top_lost_opportunities(df):
     return df_to_table(df)
 
 
-# returns top 5 open opportunities
-def top_open_opportunities(df):
-    df = df.sort_values("Amount", ascending=False)
-    cols = ["CreatedDate", "Name", "Amount", "Probability"]
-    df = df[cols].iloc[:5]
-    df["Name"] = df["Name"].apply(lambda x: x[:30]) # only display 30 characters
+# returns top 5 lost opportunities
+def top_lost_opportunities(df):
+    df = df[df["StageName"] == 'Closed Lost']
+    cols = ["CreatedDate", "Name", "Amount", "StageName"]
+    df = df[cols].sort_values("Amount", ascending=False).iloc[:5]
+    df["Name"] = df["Name"].apply(lambda x: x[:30]) # only display 21 characters
     return df_to_table(df)
 
 
