@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+import math
+import json
+
+import pandas as pd
+import flask
 import dash
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
-import flask
 import plotly.plotly as py
 from plotly import graph_objs as go
-import math
-import json
 
 from app import app, indicator, millify, df_to_table, sf_manager
 
