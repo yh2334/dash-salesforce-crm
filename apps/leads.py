@@ -11,7 +11,6 @@ import dash_html_components as html
 import plotly.plotly as py
 from plotly import graph_objs as go
 
-
 from app import app, indicator, millify, df_to_table, sf_manager
 
 states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
