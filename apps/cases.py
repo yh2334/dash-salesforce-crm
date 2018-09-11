@@ -128,10 +128,10 @@ def cases_by_period(df, period, priority, origin):
 
 def cases_by_account(cases):
     cases = cases.dropna(subset=["AccountId"])
-    accounts_id = cases["AccountId"].unique().tolist()
-    account_names = accounts[accounts["Id"].isin(accounts_id)]["Name"].tolist() # retrieve account name using IDs
-    cases = cases.groupby(["AccountId"]).count()
-    data = [go.Bar(y=account_names, x=cases["IsDeleted"], orientation="h")] # x could be any column value since its a count
+    cases = pd.merge(cases, accounts,left_on="AccountId",right_on="Id")
+    cases = cases.groupby(["AccountId","Name"]).count()
+    cases = cases.sort_values('IsDeleted')
+    data = [go.Bar(y=cases.index.get_level_values('Name'), x=cases["IsDeleted"], orientation="h")] # x could be any column value since its a count
 
     layout = go.Layout(
         barmode="stack",
