@@ -4,18 +4,19 @@ import pandas as pd
 
 class sf_Manager():
 	def __init__(self):
+		# Create a free SalesForce account: https://developer.salesforce.com/signup
 		self.sf = Salesforce(
-			username="amadou@plot.ly",
-    		password="dashsalesforce1",
-    		security_token="pjtNpHc8YhLYHw2GfRYeNz1w"
+			username="USERNAME",
+    			password="PASSWORD",
+    			security_token="TOKEN"
     		)
 
 
 	def login(self):
 		self.sf = Salesforce(
-			username="amadou@plot.ly",
-    		password="dashsalesforce1",
-    		security_token="pjtNpHc8YhLYHw2GfRYeNz1w"
+			username="USERNAME",
+    			password="PASSWORD",
+    			security_token="TOKEN"
     		)
 		return 0
 
@@ -130,11 +131,3 @@ class sf_Manager():
 			self.sf.Case.create(query)
 		return 0
 
-
-
-
-
-
-
-
-	
