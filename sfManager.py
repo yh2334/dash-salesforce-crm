@@ -13,6 +13,7 @@ class sf_Manager():
 
 
 	def login(self):
+		# Create a free SalesForce account: https://developer.salesforce.com/signup
 		self.sf = Salesforce(
 			username="USERNAME",
     			password="PASSWORD",
