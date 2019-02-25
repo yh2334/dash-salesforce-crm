@@ -5,7 +5,7 @@ Dash abstracts away all of the technologies and protocols required to build an i
 
 To learn more check out our [documentation](https://plot.ly/dash).
 
-This app uses Salesforce API in order to implement a custom CRM dashboard. The API is used via the module [Simple-Salesforce](https://pypi.org/project/simple-salesforce/). 
+This app uses Salesforce API in order to implement a custom CRM dashboard. The API is used via the module [Simple-Salesforce](https://pypi.org/project/simple-salesforce/). Create a free SalesForce developer trial account: [https://developer.salesforce.com/signup](https://developer.salesforce.com/signup) to utilize this API and run the app.
 
 ![Screenshot1](images/dash-salesforce-crm.gif)
 
