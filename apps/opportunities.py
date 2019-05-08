@@ -18,7 +18,7 @@ from app import app, indicator, millify, df_to_table, sf_manager
 
 
 def converted_opportunities(period, source, df):
-    df["CreatedDate"] = pd.to_datetime(df["CreatedDate"], format="%Y-%m-%d") 
+    df["CreatedDate"] = pd.to_datetime(df["CreatedDate"], format="%Y-%m-%d")
 
     # source filtering
     if source == "all_s":
@@ -39,7 +39,7 @@ def converted_opportunities(period, source, df):
     )
 
 
-    # if no results were found 
+    # if no results were found
     if df.empty:
         layout = dict(annotations=[dict(text="No results found", showarrow=False)])
         return {"data": [], "layout": layout}
@@ -88,8 +88,8 @@ def heat_map_fig(df, x, y):
     return go.Figure(data=[trace], layout=layout)
 
 
-# returns top 5 lost opportunities
-def top_lost_opportunities(df):
+# returns top 5 open opportunities
+def top_open_opportunities(df):
     df = df.sort_values("Amount", ascending=True)
     cols = ["CreatedDate", "Name", "Amount", "StageName"]
     df = df[cols].iloc[:5]
@@ -142,7 +142,7 @@ def modal():
                         ),
 
 
-                        # modal form 
+                        # modal form
                         html.Div(
                             [
 
@@ -281,7 +281,7 @@ def modal():
                                     style={"paddingRight": "15"},
                                 ),
 
-                                
+
                                 # right div
                                 html.Div(
                                     [
@@ -468,7 +468,7 @@ layout = [
         className="row",
     ),
 
-    #charts row div 
+    #charts row div
     html.Div(
         [
             html.Div(
@@ -518,7 +518,7 @@ layout = [
                         id="top_open_opportunities",
                         style={"padding": "0px 13px 5px 13px", "marginBottom": "5"},
                     ),
-                   
+
                 ],
                 className="six columns",
                 style={
@@ -555,7 +555,7 @@ layout = [
                 },
             ),
 
-            
+
             modal(),
         ],
         className="row",
@@ -693,7 +693,7 @@ def add_opportunity_callback(
             "LeadSource": source,
         }
 
-        sf_manager.add_opportunity(query) 
+        sf_manager.add_opportunity(query)
 
         df = sf_manager.get_opportunities()
 
